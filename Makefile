@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	ld $(OBJ) -macosx_version_min 10.10 -lSystem
 
 %.o: %.s
-	nasm -f macho64 $<
+	nasm -f macho $<
 
 clean:
 	rm -f $(OBJ)
