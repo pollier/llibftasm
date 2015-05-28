@@ -1,5 +1,4 @@
 global _ft_isalnum
-
 section .text
 
 _ftisalnum:

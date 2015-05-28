@@ -13,4 +13,3 @@ _ft_isupper:
 false:
 	mov rax, 0
 	ret
-
