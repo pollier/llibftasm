@@ -1,17 +1,19 @@
-NAME = a.out
-LIBFT_ASM = ft_isalpha.s ft_isdigit.s
+NAME = libft.a
+LIBFT_ASM = ft_isalpha.s ft_isdigit.s ft_isalnum.s\
+ft_isascii.s ft_isprint.s ft_isupper.s ft_islower.s\
+ft_toupper.s ft_tolower.s
 
 OBJ = $(LIBFT_ASM:.s=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	# ar rc $(NAME) $(OBJ)
-	# ranlib $(NAME)
-	ld $(OBJ) -macosx_version_min 10.10 -lSystem
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+	#ld $(OBJ) -macosx_version_min 10.10 -lSystem
 
 %.o: %.s
-	nasm -f macho $<
+	nasm -f macho64 $<
 
 clean:
 	rm -f $(OBJ)
