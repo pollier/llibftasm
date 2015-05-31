@@ -1,27 +1,47 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_islower.s                                       :+:      :+:    :+:    ;
+;    ft_strcat.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 16:38:51 by pollier           #+#    #+#              ;
-;    Updated: 2015/05/31 18:20:03 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 19:35:56 by pollier           #+#    #+#              ;
+;    Updated: 2015/05/31 20:29:28 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_islower
-
+global _ft_strcat
 section .text
 
-_ft_islower:
+_ft_strcat:
 
-	cmp rdi, 'a'
-	jl false
-	cmp rdi, 'z'
-	jg false
-	mov rax, 1
+	push rdi
+	jmp comp
 
-false:
-	mov rax, 0
+comp:
+
+	cmp byte[rdi], '\0'
+	je trail
+	jmp parse
+
+trail:
+
+	mov byte[rdi], byte[rsi]
+	cmp byte[rdi], '\0'
+	je end
+	jmp parse2
+
+parse:
+
+	inc rdi
+	jmp comp
+
+parse2:
+
+	inc rdi
+	inc rsi
+	jmp trail
+
+end:
+	pop rax
 	ret

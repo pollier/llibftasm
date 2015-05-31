@@ -1,12 +1,27 @@
+; **************************************************************************** ;
+;                                                                              ;
+;                                                         :::      ::::::::    ;
+;    ft_isalnum.s                                       :+:      :+:    :+:    ;
+;                                                     +:+ +:+         +:+      ;
+;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
+;                                                 +#+#+#+#+#+   +#+            ;
+;    Created: 2015/05/31 16:38:51 by pollier           #+#    #+#              ;
+;    Updated: 2015/05/31 19:34:48 by pollier          ###   ########.fr        ;
+;                                                                              ;
+; **************************************************************************** ;
+
+extern ft_isalpha
+extern ft_isdigit
+
 global _ft_isalnum
 section .text
 
-_ftisalnum:
+_ft_isalnum:
 
-	call ft_isalpha, rdi
+	call ft_isalpha
 	cmp rax, 0
 	jg true
-	call ft_isdigit, rdi
+	call ft_isdigit
 	cmp rax, 0
 	jg true
 	jmp false
