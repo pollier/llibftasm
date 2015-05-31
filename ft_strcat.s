@@ -21,8 +21,8 @@ _ft_strcat:
 comp:
 
 	cmp byte[rdi], '\0'
-	je trail
-	jmp parse
+	jne parse
+	jmp trail
 
 trail:
 
