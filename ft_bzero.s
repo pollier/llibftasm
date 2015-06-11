@@ -16,14 +16,6 @@ section .text
 _ft_bzero:
 
 	mov rcx, rsi
-
-comp:
-	cmp rcx, 0
-	je end
-	mov byte [rdi], 0
-	inc rdi
-	dec rcx
-	jmp comp
-
-end:
+	mov rax, 0
+	rep stosb
 	ret

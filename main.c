@@ -43,15 +43,15 @@ void	ft_cat(int fd);
 
 /****************************** Fonctions Bonus *******************************/
 
-void	ft_putspace(size_t len);
-int		ft_isspace(int c);
-char	*ft_strncpy(char *restrict dst, const char *restrict src, size_t n);
-int		ft_isupper(int c);
-int		ft_islower(int c);
-char	*ft_strcpy(char *restrict dst, const char *restrict src);
-char	*ft_strchr(const char *s, char c);
-int		ft_strbcmp(const char *s1, const char *s2);
-void	ft_puts_fd(char *s, int fd);
+// void	ft_putspace(size_t len);
+// int		ft_isspace(int c);
+// char	*ft_strncpy(char *restrict dst, const char *restrict src, size_t n);
+// int		ft_isupper(int c);
+// int		ft_islower(int c);
+// char	*ft_strcpy(char *restrict dst, const char *restrict src);
+// char	*ft_strchr(const char *s, char c);
+// int		ft_strbcmp(const char *s1, const char *s2);
+// void	ft_puts_fd(char *s, int fd);
 
 /*********************** Fonctions Tests Part_1 *******************************/
 
@@ -609,360 +609,360 @@ int	test_ft_cat(void)
 
 /************************ Fonctions Tests Bonus *******************************/
 
-void		test_ft_isupper(void)
-{
-	int i = -1;
-	int res = 0;
-	int ft_res = 0;
+// void		test_ft_isupper(void)
+// {
+// 	int i = -1;
+// 	int res = 0;
+// 	int ft_res = 0;
 
-	while (++i < 127)
-	{
-		res += isupper(i);
-		ft_res += ft_isupper(i);
-		if (res != ft_res)
-			break;
-	}
-	if (i == 127)
-		ft_putstr("\033[32mAll test OK \033[m");
-	else
-	{
-		ft_putstr("\033[31mFAIL test ");
-		printf("%d\n", i);
-		ft_putstr("\033[m");
-	}
-}
+// 	while (++i < 127)
+// 	{
+// 		res += isupper(i);
+// 		ft_res += ft_isupper(i);
+// 		if (res != ft_res)
+// 			break;
+// 	}
+// 	if (i == 127)
+// 		ft_putstr("\033[32mAll test OK \033[m");
+// 	else
+// 	{
+// 		ft_putstr("\033[31mFAIL test ");
+// 		printf("%d\n", i);
+// 		ft_putstr("\033[m");
+// 	}
+// }
 
-void		test_ft_islower(void)
-{
-	int i = -1;
-	int res = 0;
-	int ft_res = 0;
+// void		test_ft_islower(void)
+// {
+// 	int i = -1;
+// 	int res = 0;
+// 	int ft_res = 0;
 
-	while (++i < 127)
-	{
-		res += islower(i);
-		ft_res += ft_islower(i);
-		if (res != ft_res)
-			break;
-	}
-	if (i == 127)
-		ft_putstr("\033[32mAll test OK \033[m");
-	else
-	{
-		ft_putstr("\033[31mFAIL test ");
-		printf("%d\n", i);
-		ft_putstr("\033[m");
-	}
-}
-
-
-void	test_ft_strchr(void)
-{
-	char *str1;
-	char *str2;
-	char *str3;
-	char *str4;
-
-	str1 = strdup("bonjour");
-	str2 = strdup("bonjour");
-	str3 = strchr(str1, 'b');
-	str4 = ft_strchr(str2, 'b');
-	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("bonjour");
-	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'b', str3, str4);
-
-	str1 = strdup("bonjour");
-	str2 = strdup("bonjour");
-	str3 = strchr(str1, 'r');
-	str4 = ft_strchr(str2, 'r');
-	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("bonjour");
-	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'r', str3, str4);
-
-	str1 = strdup("bonjour");
-	str2 = strdup("bonjour");
-	str3 = strchr(str1, 'a');
-	str4 = ft_strchr(str2, 'a');
-	if (!str3 && !str4)
-		ft_putstr("\033[32mOK \033[m");
-	else
-		ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("bonjour");
-	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'a', str3, str4);
-
-	str1 = strdup("bonjour");
-	str2 = strdup("bonjour");
-	str3 = strchr(str1, 'o');
-	str4 = ft_strchr(str2, 'o');
-	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("bonjour");
-	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'o', str3, str4);
-}
+// 	while (++i < 127)
+// 	{
+// 		res += islower(i);
+// 		ft_res += ft_islower(i);
+// 		if (res != ft_res)
+// 			break;
+// 	}
+// 	if (i == 127)
+// 		ft_putstr("\033[32mAll test OK \033[m");
+// 	else
+// 	{
+// 		ft_putstr("\033[31mFAIL test ");
+// 		printf("%d\n", i);
+// 		ft_putstr("\033[m");
+// 	}
+// }
 
 
-void test_ft_strbcmp(void)
-{
-	char *s1;
-	char *s2;
-	int res;
-	int ft_res;
+// void	test_ft_strchr(void)
+// {
+// 	char *str1;
+// 	char *str2;
+// 	char *str3;
+// 	char *str4;
 
-	s1 = strdup("bonjour");
-	s2 = strdup("salut");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+// 	str1 = strdup("bonjour");
+// 	str2 = strdup("bonjour");
+// 	str3 = strchr(str1, 'b');
+// 	str4 = ft_strchr(str2, 'b');
+// 	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("bonjour");
+// 	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'b', str3, str4);
 
-	s1 = strdup("abcdd");
-	s2 = strdup("abcd");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+// 	str1 = strdup("bonjour");
+// 	str2 = strdup("bonjour");
+// 	str3 = strchr(str1, 'r');
+// 	str4 = ft_strchr(str2, 'r');
+// 	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("bonjour");
+// 	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'r', str3, str4);
 
-	s1 = strdup("bonjour");
-	s2 = strdup("bonjour");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res == ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+// 	str1 = strdup("bonjour");
+// 	str2 = strdup("bonjour");
+// 	str3 = strchr(str1, 'a');
+// 	str4 = ft_strchr(str2, 'a');
+// 	if (!str3 && !str4)
+// 		ft_putstr("\033[32mOK \033[m");
+// 	else
+// 		ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("bonjour");
+// 	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'a', str3, str4);
 
-	s1 = strdup("toto");
-	s2 = strdup("TOTO");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
-
-	s1 = strdup("");
-	s2 = strdup("1");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
-
-	s1 = strdup("");
-	s2 = strdup("");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res == ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
-
-	s1 = strdup("1");
-	s2 = strdup("");
-	res = strcmp(s1, s2);
-	ft_res = ft_strbcmp(s1, s2);
-	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr(s1);
-	ft_putstr(" / ");
-	ft_putstr(s2);
-	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
-}
-
-void		test_ft_strcpy(void)
-{
-	char *str1;
-	char *str2;
-	char *str3;
-	char *str4;
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strcpy(str1, "coucou");
-	str4 = ft_strcpy(str2, "coucou");
-	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("COUCOU");
-	ft_putstr(" / ");
-	ft_putstr("coucou");
-	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
-	printf("\n");
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strcpy(str1, "hello");
-	str4 = ft_strcpy(str2, "hello");
-	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("COUCOU");
-	ft_putstr(" / ");
-	ft_putstr("hello");
-	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
-	printf("\n");
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strcpy(str1, "qwertyuiop");
-	str4 = ft_strcpy(str2, "qwertyuiop");
-	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("COUCOU");
-	ft_putstr(" / ");
-	ft_putstr("qwertyuiop");
-	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
-	printf("\n");
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strcpy(str1, "");
-	str4 = ft_strcpy(str2, "");
-	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	ft_putstr("COUCOU");
-	ft_putstr(" / ");
-	ft_putstr("\"\"");
-	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
-	printf("\n");
-}
-
-void		test_ft_strncpy(void)
-{
-	char *str1;
-	char *str2;
-	char *str3;
-	char *str4;
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strncpy(str1, "coucou", 10);
-	str4 = ft_strncpy(str2, "coucou", 10);
-	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	printf("strncpy(COUCOU, coucou, 10) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strncpy(str1, "hello", 10);
-	str4 = ft_strncpy(str2, "hello", 10);
-	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	printf("strncpy(COUCOU, hello, 10) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strncpy(str1, "hello", 2);
-	str4 = ft_strncpy(str2, "hello", 2);
-	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	printf("strncpy(COUCOU, hello, 2) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strncpy(str1, "qwertyuiop", 8);
-	str4 = ft_strncpy(str2, "qwertyuiop", 8);
-	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	printf("strncpy(COUCOU, qwertyuiop, 8) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
-
-	str1 = strdup("COUCOU");
-	str2 = strdup("COUCOU");
-	str3 = strncpy(str1, "qwertyuiop", 0);
-	str4 = ft_strncpy(str2, "qwertyuiop", 0);
-	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
-	printf("strncpy(COUCOU, qwertyuiop, 0) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
-}
-
-void test_ft_isspace(void)
-{
-	int i = -1;
-	int res;
-	int ft_res;
-
-	while (++i < 127)
-	{
-		res = isspace(i);
-		ft_res = ft_isspace(i);
-		if (res != ft_res)
-			break;
-	}
-	if (i == 127)
-		ft_putstr("\033[32mAll test OK \033[m");
-	else
-	{
-		ft_putstr("\033[31mFAIL test ");
-		printf("%d\n", i);
-		ft_putstr("\033[m");
-	}
-	ft_putstr("\n");
-}
-
-void test_ft_putspace(void)
-{
-	ft_putstr("1");
-	ft_putspace(2);
-	ft_putstr("333");
-	ft_putspace(4);
-	ft_putstr("55555|\n");
-	ft_putspace(1);
-	ft_putstr("22");
-	ft_putspace(3);
-	ft_putstr("4444");
-	ft_putspace(5);
-	ft_putstr("|\n");
-}
-
-void *ft_memalloc(size_t size);
-void *ft_strnew(size_t size);
-
-void test_ft_memalloc(void)
-{
-	char *s1;
-	char s2[] = "\0\0\0\0\0";
-
-	ft_putstr("ft_memalloc(5) ->");
-	s1 = ft_memalloc(5);
-	memcmp(s1, s2, 5) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
-	ft_putstr("ft_memalloc(0) -> ");
-	puts(ft_memalloc(0));
-}
-
-void test_ft_strnew(void)
-{
-	char *s1;
-	char s2[] = "\0\0\0\0\0\0";
-
-	ft_putstr("ft_strnew(5) ->");
-	s1 = ft_strnew(5);
-	memcmp(s1, s2, 6) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
-
-	char *s3;
-	char s4[] = "\0";
-	ft_putstr("ft_strnew(0) ->");
-	s3 = ft_strnew(0);
-	memcmp(s3, s4, 1) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
-}
-
-void	test_ft_puts_fd(void)
-{
-	int fd;
+// 	str1 = strdup("bonjour");
+// 	str2 = strdup("bonjour");
+// 	str3 = strchr(str1, 'o');
+// 	str4 = ft_strchr(str2, 'o');
+// 	(strcmp(str3, str4) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("bonjour");
+// 	printf(", %c -> strchr: %s, ft_strchr: %s\n", 'o', str3, str4);
+// }
 
 
-	fd = open("test_puts_fd", O_WRONLY | O_CREAT | O_APPEND);
+// void test_ft_strbcmp(void)
+// {
+// 	char *s1;
+// 	char *s2;
+// 	int res;
+// 	int ft_res;
 
-	ft_putstr("tests envoyes dans le fichier \"test_puts_fd\":\n");
-	ft_putstr("Bonjour\n");
-	ft_putstr("13\n");
-	ft_putstr("hello world\n");
-	ft_putstr("!@#$%^&*()\n");
+// 	s1 = strdup("bonjour");
+// 	s2 = strdup("salut");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
 
-	ft_puts_fd("Bonjour", fd);
-	ft_puts_fd("13", fd);
-	ft_puts_fd("hello world", fd);
-	ft_puts_fd("!@#$%^&*()", fd);
+// 	s1 = strdup("abcdd");
+// 	s2 = strdup("abcd");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+
+// 	s1 = strdup("bonjour");
+// 	s2 = strdup("bonjour");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res == ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+
+// 	s1 = strdup("toto");
+// 	s2 = strdup("TOTO");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+
+// 	s1 = strdup("");
+// 	s2 = strdup("1");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+
+// 	s1 = strdup("");
+// 	s2 = strdup("");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res == ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+
+// 	s1 = strdup("1");
+// 	s2 = strdup("");
+// 	res = strcmp(s1, s2);
+// 	ft_res = ft_strbcmp(s1, s2);
+// 	(res/res == ft_res/ft_res) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr(s1);
+// 	ft_putstr(" / ");
+// 	ft_putstr(s2);
+// 	printf(" -> cmp: %d, ft_cmp: %d\n", res, ft_res);
+// }
+
+// void		test_ft_strcpy(void)
+// {
+// 	char *str1;
+// 	char *str2;
+// 	char *str3;
+// 	char *str4;
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strcpy(str1, "coucou");
+// 	str4 = ft_strcpy(str2, "coucou");
+// 	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("COUCOU");
+// 	ft_putstr(" / ");
+// 	ft_putstr("coucou");
+// 	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
+// 	printf("\n");
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strcpy(str1, "hello");
+// 	str4 = ft_strcpy(str2, "hello");
+// 	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("COUCOU");
+// 	ft_putstr(" / ");
+// 	ft_putstr("hello");
+// 	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
+// 	printf("\n");
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strcpy(str1, "qwertyuiop");
+// 	str4 = ft_strcpy(str2, "qwertyuiop");
+// 	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("COUCOU");
+// 	ft_putstr(" / ");
+// 	ft_putstr("qwertyuiop");
+// 	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
+// 	printf("\n");
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strcpy(str1, "");
+// 	str4 = ft_strcpy(str2, "");
+// 	((strcmp(str3, str4)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	ft_putstr("COUCOU");
+// 	ft_putstr(" / ");
+// 	ft_putstr("\"\"");
+// 	printf(" -> strcpy: %s, ft_strcpy: %s", str3, str4);
+// 	printf("\n");
+// }
+
+// void		test_ft_strncpy(void)
+// {
+// 	char *str1;
+// 	char *str2;
+// 	char *str3;
+// 	char *str4;
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strncpy(str1, "coucou", 10);
+// 	str4 = ft_strncpy(str2, "coucou", 10);
+// 	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	printf("strncpy(COUCOU, coucou, 10) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strncpy(str1, "hello", 10);
+// 	str4 = ft_strncpy(str2, "hello", 10);
+// 	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	printf("strncpy(COUCOU, hello, 10) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strncpy(str1, "hello", 2);
+// 	str4 = ft_strncpy(str2, "hello", 2);
+// 	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	printf("strncpy(COUCOU, hello, 2) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strncpy(str1, "qwertyuiop", 8);
+// 	str4 = ft_strncpy(str2, "qwertyuiop", 8);
+// 	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	printf("strncpy(COUCOU, qwertyuiop, 8) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
+
+// 	str1 = strdup("COUCOU");
+// 	str2 = strdup("COUCOU");
+// 	str3 = strncpy(str1, "qwertyuiop", 0);
+// 	str4 = ft_strncpy(str2, "qwertyuiop", 0);
+// 	((memcmp(str3, str4, 10)) == 0) ? ft_putstr("\033[32mOK \033[m") : ft_putstr("\033[31mFAIL \033[m");
+// 	printf("strncpy(COUCOU, qwertyuiop, 0) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
+// }
+
+// void test_ft_isspace(void)
+// {
+// 	int i = -1;
+// 	int res;
+// 	int ft_res;
+
+// 	while (++i < 127)
+// 	{
+// 		res = isspace(i);
+// 		ft_res = ft_isspace(i);
+// 		if (res != ft_res)
+// 			break;
+// 	}
+// 	if (i == 127)
+// 		ft_putstr("\033[32mAll test OK \033[m");
+// 	else
+// 	{
+// 		ft_putstr("\033[31mFAIL test ");
+// 		printf("%d\n", i);
+// 		ft_putstr("\033[m");
+// 	}
+// 	ft_putstr("\n");
+// }
+
+// void test_ft_putspace(void)
+// {
+// 	ft_putstr("1");
+// 	ft_putspace(2);
+// 	ft_putstr("333");
+// 	ft_putspace(4);
+// 	ft_putstr("55555|\n");
+// 	ft_putspace(1);
+// 	ft_putstr("22");
+// 	ft_putspace(3);
+// 	ft_putstr("4444");
+// 	ft_putspace(5);
+// 	ft_putstr("|\n");
+// }
+
+// void *ft_memalloc(size_t size);
+// void *ft_strnew(size_t size);
+
+// void test_ft_memalloc(void)
+// {
+// 	char *s1;
+// 	char s2[] = "\0\0\0\0\0";
+
+// 	ft_putstr("ft_memalloc(5) ->");
+// 	s1 = ft_memalloc(5);
+// 	memcmp(s1, s2, 5) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
+// 	ft_putstr("ft_memalloc(0) -> ");
+// 	puts(ft_memalloc(0));
+// }
+
+// void test_ft_strnew(void)
+// {
+// 	char *s1;
+// 	char s2[] = "\0\0\0\0\0\0";
+
+// 	ft_putstr("ft_strnew(5) ->");
+// 	s1 = ft_strnew(5);
+// 	memcmp(s1, s2, 6) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
+
+// 	char *s3;
+// 	char s4[] = "\0";
+// 	ft_putstr("ft_strnew(0) ->");
+// 	s3 = ft_strnew(0);
+// 	memcmp(s3, s4, 1) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
+// }
+
+// void	test_ft_puts_fd(void)
+// {
+// 	int fd;
+
+
+// 	fd = open("test_puts_fd", O_WRONLY | O_CREAT | O_APPEND);
+
+// 	ft_putstr("tests envoyes dans le fichier \"test_puts_fd\":\n");
+// 	ft_putstr("Bonjour\n");
+// 	ft_putstr("13\n");
+// 	ft_putstr("hello world\n");
+// 	ft_putstr("!@#$%^&*()\n");
+
+// 	ft_puts_fd("Bonjour", fd);
+// 	ft_puts_fd("13", fd);
+// 	ft_puts_fd("hello world", fd);
+// 	ft_puts_fd("!@#$%^&*()", fd);
 	
-	close(fd);
-}
+// 	close(fd);
+// }
 /****************************** Core test *************************************/
 
 int main(void)
@@ -1004,30 +1004,30 @@ int main(void)
 	ft_putstr("\n\033[33mPart_3:\n\033[m");
 
 	ft_putstr("\nFT_CAT:\n");
-//	test_ft_cat();
+	test_ft_cat();
 
-	ft_putstr("\n\033[33mPart Bonus:\n\033[m");
+	// ft_putstr("\n\033[33mPart Bonus:\n\033[m");
 
-	ft_putstr("\nFT_ISUPPER:\n");
-	test_ft_isupper();
-	ft_putstr("\n\nFT_ISLOWER:\n");
-	test_ft_islower();
-	ft_putstr("\n\nFT_STRCHR:\n");
-	test_ft_strchr();
-	ft_putstr("\nFT_STRBCMP:\n");
-	test_ft_strbcmp();
-	ft_putstr("\nFT_STRCPY:\n");
-	test_ft_strcpy();
-	ft_putstr("\nFT_STRNCPY:\n");
-	test_ft_strncpy();
-	ft_putstr("\nFT_ISSPACE:\n");
-	test_ft_isspace();
-	ft_putstr("\nFT_PUTSPACE:\n");
-	test_ft_putspace();
-	ft_putstr("\nFT_MEMALLOC:\n");
-	test_ft_memalloc();
-	ft_putstr("\nFT_STRNEW:\n");
-	test_ft_strnew();
-	ft_putstr("\n\nFT_PUTS_FD:\n");
-	test_ft_puts_fd();
+	// ft_putstr("\nFT_ISUPPER:\n");
+	// test_ft_isupper();
+	// ft_putstr("\n\nFT_ISLOWER:\n");
+	// test_ft_islower();
+	// ft_putstr("\n\nFT_STRCHR:\n");
+	// test_ft_strchr();
+	// ft_putstr("\nFT_STRBCMP:\n");
+	// test_ft_strbcmp();
+	// ft_putstr("\nFT_STRCPY:\n");
+	// test_ft_strcpy();
+	// ft_putstr("\nFT_STRNCPY:\n");
+	// test_ft_strncpy();
+	// ft_putstr("\nFT_ISSPACE:\n");
+	// test_ft_isspace();
+	// ft_putstr("\nFT_PUTSPACE:\n");
+	// test_ft_putspace();
+	// ft_putstr("\nFT_MEMALLOC:\n");
+	// test_ft_memalloc();
+	// ft_putstr("\nFT_STRNEW:\n");
+	// test_ft_strnew();
+	// ft_putstr("\n\nFT_PUTS_FD:\n");
+	// test_ft_puts_fd();
 }

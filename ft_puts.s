@@ -1,5 +1,5 @@
 ; **************************************************************************** ;
-;                                                                              ;
+;		                                                                 ;
 ;                                                         :::      ::::::::    ;
 ;    ft_puts.s                                          :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
@@ -10,33 +10,19 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
+extern _ft_strlen
+
 global _ft_puts
 section .text
 
 _ft_puts:
-
+	
 	push rdi
-
-comp:
-
-	mov rcx, 0
-	cmp byte [rdi], 0
-	jne parse
-
-go:
-
-	mov rax, 4
-	mov rbx, 1
-	pop r8
-	push rcx
-	mov rcx, r8
-
-parse:
-
-	inc rdi
-	inc rcx
-	jmp comp
-
-end:
-	mov rax, 1
+	call _ft_strlen
+	push rax
+	mov rax, 4              ; System call write = 4
+	mov rbx, 1              ; Write to standard out = 1
+	pop rdx		             ; The size to write
+	pop rcx    ; The address of hello_world string
+	syscall                 ; Invoke the kernel
 	ret
