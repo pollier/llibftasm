@@ -16,4 +16,9 @@ section .text
 
 _ft_memset:
 
-ret
+	push rdi
+	mov rax, rsi
+	mov rcx, rdx
+	rep stosb
+	pop rax
+	ret

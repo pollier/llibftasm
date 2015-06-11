@@ -1,7 +1,7 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isalnum.s                                       :+:      :+:    :+:    ;
+;    ft_cat.s                                           :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
@@ -10,21 +10,8 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-extern _ft_isalpha
-extern _ft_isdigit
-
-global _ft_isalnum
+global _ft_cat
 section .text
 
-_ft_isalnum:
-
-	call _ft_isalpha
-	cmp rax, 0
-	jg true
-	call _ft_isdigit
-
-true:
-
-	ret
-
+_ft_cat:
 

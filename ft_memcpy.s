@@ -16,4 +16,8 @@ section .text
 
 _ft_memcpy:
 
-ret
+	push rdi
+	mov rcx, rdx
+	rep movsb
+	pop rax
+	ret
