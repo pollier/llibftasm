@@ -15,11 +15,11 @@ section .text
 
 _ft_strlen:
 
-push rdi
-mov rax, 0
-repnz scasb
-
-error:
-
-
-end:
+	mov rax, 0
+	cld
+	mov rcx, -1
+	repnz scasb
+	neg rcx
+	dec rcx
+	mov rax, rcx
+	ret

@@ -19,7 +19,7 @@ _ft_isdigit:
 	cmp	rdi, 48
 	jl false
 	cmp	rdi, 58
-	jg false
+	jge false
 	mov rax, 1
 	ret
 

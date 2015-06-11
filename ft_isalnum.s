@@ -10,18 +10,18 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-extern ft_isalpha
-extern ft_isdigit
+extern _ft_isalpha
+extern _ft_isdigit
 
 global _ft_isalnum
 section .text
 
 _ft_isalnum:
 
-	call ft_isalpha
+	call _ft_isalpha
 	cmp rax, 0
 	jg true
-	call ft_isdigit
+	call _ft_isdigit
 	cmp rax, 0
 	jg true
 	jmp false
