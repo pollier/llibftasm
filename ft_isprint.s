@@ -21,6 +21,7 @@ _ft_isprint:
 	cmp rdi, 126
 	jg false
 	mov rax, 1
+	ret
 
 false:
 	mov rax, 0

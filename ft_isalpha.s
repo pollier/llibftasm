@@ -25,10 +25,11 @@ _ft_isalpha:
 	cmp rdi, 'a'
 	jge true
 
+false:
+	mov rax, 0
+	ret
+
 true:
 	mov rax, 1
 	ret
 
-false:
-	mov rax, 0
-	ret
