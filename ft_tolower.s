@@ -16,12 +16,12 @@ section .text
 
 _ft_tolower:
 
-	cmp rdi, 'A'
-	jl false
-	cmp rdi, 'Z'
-	jg false
-	add rdi, 32
+	cmp		rdi, 'A'
+	jl		false
+	cmp		rdi, 'Z'
+	jg		false
+	add		rdi, 32
 
 false:
-	mov rax, rdi
+	mov		rax, rdi
 	ret

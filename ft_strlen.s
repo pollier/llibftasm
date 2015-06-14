@@ -13,13 +13,17 @@
 global _ft_strlen
 section .text
 
-_ft_strlen:
+_ft_strlen
 
-	mov rax, 0
+	
+	push	rdi
+	mov		rax, 0
 	cld
-	mov rcx, -1
-	repnz scasb
-	neg rcx
-	dec rcx
-	mov rax, rcx
+	mov		rcx, -1
+	repnz	scasb
+	neg		rcx
+	dec		rcx
+	dec		rcx
+	mov		rax, rcx
+	pop		rdi
 	ret

@@ -9,10 +9,10 @@ OBJ = $(LIBFT_ASM:.s=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-#	gcc -Wall -Wextra -Werror -c main.c
+	# gcc -Wall -Wextra -Werror -c main.c
 	ar rc $(NAME) $(OBJ) # main.o
 	ranlib $(NAME)
-#	ld $(OBJ) main.o -macosx_version_min 10.10 -lSystem
+	# ld $(OBJ) main.o -macosx_version_min 10.10 -lSystem
 
 %.o: %.s
 	nasm -f macho64 $<

@@ -1,4 +1,4 @@
-; **************************************************************************** ;
+;	**************************************************************************** ;
 ;		                                                                 ;
 ;                                                         :::      ::::::::    ;
 ;    ft_puts.s                                          :+:      :+:    :+:    ;
@@ -10,19 +10,50 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-extern _ft_strlen
+global	_ft_puts
+extern	_ft_strlen
 
-global _ft_puts
-section .text
+section	.data
+string	db	"(null)", 0x0a
+
+section	.text
 
 _ft_puts:
-	
-	push rdi
-	call _ft_strlen
-	push rax
-	mov rax, 4              ; System call write = 4
-	mov rbx, 1              ; Write to standard out = 1
-	pop rdx		             ; The size to write
-	pop rcx    ; The address of hello_world string
-	syscall                 ; Invoke the kernel
+
+	push	rdi
+	push	rsi
+	push	rbx
+	cmp		rdi,	0
+	je		if_null
+	call	_ft_strlen
+	mov		rsi,	rdi
+	mov		rdi,	1
+	mov		rdx,	rax
+	mov		rax,	0x2000004
+	syscall
+
+n:
+
+	push	0xa
+	mov		rsi,	rsp
+	mov		rdi,	1
+	mov		rdx,	1
+	mov		rax,	0x2000004
+	syscall
+	pop		rdi
+	pop		rbx
+	pop		rsi
+	pop		rdi
+	ret
+
+if_null:
+
+	lea		rsi,	[rel string]
+	mov		rdx,	7
+	mov		rdi,	1
+	mov		rax,	0x2000004
+	syscall
+	pop		rbx
+	pop		rsi
+	pop		rdi
 	ret

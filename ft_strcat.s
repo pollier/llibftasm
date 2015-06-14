@@ -19,27 +19,27 @@ _ft_strcat:
 
 comp:
 
-	cmp byte [rdi], 0
-	jne parse
+	cmp		byte [rdi], 0
+	jne		parse
 
 trail:
 
-	mov al, byte [rsi]
-	mov byte [rdi], al
-	cmp byte [rdi], 0
-	je end
+	mov		al, byte [rsi]
+	mov		byte [rdi], al
+	cmp		byte [rdi], 0
+	je		end
 
 parse2:
 
-	inc rdi
-	inc rsi
-	jmp trail
+	inc		rdi
+	inc		rsi
+	jmp		trail
 
 parse:
 
-	inc rdi
-	jmp comp
+	inc		rdi
+	jmp		comp
 
 end:
-	pop rax
+	pop		rax
 	ret

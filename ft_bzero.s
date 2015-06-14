@@ -15,7 +15,7 @@ section .text
 
 _ft_bzero:
 
-	mov rcx, rsi
-	mov rax, 0
-	rep stosb
+	mov		rcx, rsi
+	mov		rax, 0
+	rep		stosb
 	ret

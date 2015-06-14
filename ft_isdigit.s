@@ -1,7 +1,7 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isdigit.s                                       :+:      :+:    :+:    ;
+;   		ft_isdigit.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
@@ -16,13 +16,13 @@ section .text
 
 _ft_isdigit:
 
-	cmp	rdi, 48
-	jl false
-	cmp	rdi, 58
-	jge false
-	mov rax, 1
+	cmp		rdi, 48
+	jl		false
+	cmp		rdi, 58
+	jge		false
+	mov		rax, 1
 	ret
 
 false:
-	mov rax, 0
+	mov		rax, 0
 	ret

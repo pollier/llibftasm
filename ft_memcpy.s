@@ -16,8 +16,13 @@ section .text
 
 _ft_memcpy:
 
-	push rdi
-	mov rcx, rdx
-	rep movsb
-	pop rax
+	push	rdi
+	push	rbx
+	push	rsi
+	mov		rcx, rdx
+	rep		movsb
+	pop		rsi
+	pop		rbx
+	pop		rax
+	mov		rdi, rax
 	ret

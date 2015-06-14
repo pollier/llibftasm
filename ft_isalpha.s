@@ -16,20 +16,20 @@ section .text
 
 _ft_isalpha:
 
-	cmp rdi, 'A'
-	jl false
-	cmp rdi, 'z'
-	jg false
-	cmp rdi, 'Z'
-	jle true
-	cmp rdi, 'a'
-	jge true
+	cmp		rdi, 'A'
+	jl		false
+	cmp		rdi, 'z'
+	jg		false
+	cmp		rdi, 'Z'
+	jle		true
+	cmp		rdi, 'a'
+	jge		true
 
 false:
-	mov rax, 0
+	mov		rax, 0
 	ret
 
 true:
-	mov rax, 1
+	mov		rax, 1
 	ret
 
