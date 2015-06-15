@@ -10,8 +10,15 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
+%define	WRITE				4
+%define	STDOUT				1
+%define	BUFF_SIZE			1
+%define	MACH_SYSCALL(nb)	0x2000000 | nb
+
 global _ft_cat
 section .text
 
 _ft_cat:
+	
+	
 	ret
