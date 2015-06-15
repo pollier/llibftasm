@@ -10,6 +10,7 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
+extern _ft_strlen
 extern _malloc
 
 global _ft_strdup
@@ -18,6 +19,25 @@ section .text
 
 _ft_strdup:
 
+	cmp		rdi,	0
+	je		null
+	push	rdi
+	call	_ft_strlen
+	mov		rcx,	rax
+	mov		rdi,	rax
+	push	rax
+	call	_malloc
+	mov		rdi,	rax
+	pop		rcx
+	mov		rsi,	[rsp]
+	push	rdi
+	rep		movsb
+	pop		rax
+	pop		rsi
+	mov		rdi,	rax
+	ret
 
-
-ret
+null:
+	
+	mov 	rax,	0
+	ret
