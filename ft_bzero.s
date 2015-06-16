@@ -15,7 +15,12 @@ section .text
 
 _ft_bzero:
 
+	push	rdi
+	push	rsi
 	mov		rcx, rsi
 	mov		rax, 0
 	rep		stosb
+
+	pop		rsi
+	pop		rdi
 	ret

@@ -10,15 +10,27 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define	WRITE				4
 %define	STDOUT				1
-%define	BUFF_SIZE			1
-%define	MACH_SYSCALL(nb)	0x2000000 | nb
+%define	BUFF_SIZE			10
 
+extern _ft_bzero
 global _ft_cat
+
+section .data
+buff times BUFF_SIZE db 0
+
 section .text
 
 _ft_cat:
+
+	push	rdi
+
+read:
+
+
+
+end:
 	
-	
+	pop		rdi
+	mov		rax,	0
 	ret
