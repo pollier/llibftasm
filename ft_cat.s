@@ -10,27 +10,45 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define	STDOUT				1
-%define	BUFF_SIZE			10
+%define	BUFF_SIZE	10
 
 extern _ft_bzero
 global _ft_cat
 
 section .data
+
 buff times BUFF_SIZE db 0
 
 section .text
 
 _ft_cat:
 
+	push	rsi
 	push	rdi
 
-read:
+boucle:
+	
 
-
+	lea		rsi,	[rel buff]
+	mov		rax,	0x2000003
+	mov		rdx,	BUFF_SIZE
+	syscall
+	cmp		rax,	0
+	jle		end
+	push	rax
+	mov		rdx,	rax
+	mov		rdi,	1
+	mov		rax,	0x2000004
+	syscall
+	lea		rdi,	[rel buff]
+	pop		rsi
+	call	_ft_bzero
+	mov		rdi,	[rsp]
+	jmp		boucle
 
 end:
 	
 	pop		rdi
+	pop		rsi
 	mov		rax,	0
 	ret
