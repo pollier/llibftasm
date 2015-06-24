@@ -21,8 +21,7 @@ _ft_strlen:
 	cld
 	mov		rcx, -1
 	repnz	scasb
-	neg		rcx
-	dec		rcx
+	not		rcx
 	dec		rcx
 	mov		rax, rcx
 	pop		rdi
