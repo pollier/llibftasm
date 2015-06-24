@@ -22,6 +22,7 @@ _ft_strdup:
 	cmp		rdi,	0
 	je		null
 	push	rdi
+	push	rsi
 	call	_ft_strlen
 	mov		rcx,	rax
 	mov		rdi,	rax
@@ -30,11 +31,11 @@ _ft_strdup:
 	mov		rdi,	rax
 	pop		rcx
 	mov		rsi,	[rsp]
-	push	rdi
+	push		rdi
 	rep		movsb
 	pop		rax
 	pop		rsi
-	mov		rdi,	rax
+	pop		rdi
 	ret
 
 null:
