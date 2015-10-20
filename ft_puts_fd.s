@@ -6,7 +6,7 @@
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/20 15:47:06 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/20 21:19:08 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -18,7 +18,7 @@ string	db	"(null)", 0x0a
 
 section	.text
 
-	_ft_puts_fd:
+_ft_puts_fd:
 
 	push	rdi
 	push	rsi
@@ -26,6 +26,11 @@ section	.text
 	cmp		rdi,	0
 	je		stop
 	call	_ft_strlen
+
+test:
+
+	push 	r8
+	push	rdi
 
 write:
 
@@ -58,3 +63,5 @@ stop:
 	pop		rsi
 	pop		rdi
 	ret
+
+error:
