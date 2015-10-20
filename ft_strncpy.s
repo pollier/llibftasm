@@ -1,50 +1,48 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strndup.s                                       :+:      :+:    :+:    ;
+;    ft_strncpy.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/20 15:47:19 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/20 15:47:17 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
+global _ft_strncpy
 extern _ft_strnlen
-extern _malloc
-
-global _ft_strndup
-extern _ft_strnlen
-extern _ft_strncpy
-
 section .text
 
-_ft_strndup:
-	push rdi
-	push rsi
-	push rdi
-	push rsi
+_ft_strncpy:
 
-	call _ft_strnlen
-	mov rdi, rax
-	mov rsi, rax
-	call _malloc
-	cmp rax, 0
+	push rsi
+	push rdi
+	push rdx
+
+	cmp rdi, 0
 	je stop
-	mov rdi, rax
-	pop rsi
-	mov rdx, rsi
+	cmp rsi, 0
+	je stop
+	push rsi
+	push rdi
+	mov rdi, rsi
+	mov rsi, rdx
+	call _ft_strnlen
+	cld
 	pop rdi
-	mov rsi, rdi
-	call _ft_strncpy
+	mov rcx, rax
 	pop rsi
+	rep	movsb		;copie l'octet rsi dans rdi et incremente
+	pop rdx
 	pop rdi
+	pop rsi
+	mov rax, rdi
 	ret
 
 stop:
-	pop rsi
+	pop rdx
 	pop rdi
 	pop rsi
-	pop rdi
 	mov rax, 0
 	ret

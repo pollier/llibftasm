@@ -1,50 +1,28 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strndup.s                                       :+:      :+:    :+:    ;
+;    ft_strnew.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/20 15:47:19 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/20 15:47:20 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-extern _ft_strnlen
-extern _malloc
+	global _ft_strnew
 
-global _ft_strndup
-extern _ft_strnlen
-extern _ft_strncpy
+extern	_ft_memalloc
 
 section .text
 
-_ft_strndup:
-	push rdi
-	push rsi
-	push rdi
-	push rsi
+_ft_strnew:
 
-	call _ft_strnlen
-	mov rdi, rax
-	mov rsi, rax
-	call _malloc
-	cmp rax, 0
-	je stop
-	mov rdi, rax
-	pop rsi
-	mov rdx, rsi
-	pop rdi
-	mov rsi, rdi
-	call _ft_strncpy
-	pop rsi
-	pop rdi
+	cmp rdi, 0
+	je strnew
+	call _ft_memalloc
 	ret
 
-stop:
-	pop rsi
-	pop rdi
-	pop rsi
-	pop rdi
-	mov rax, 0
-	ret
+strnew:
+	inc rdi
+	jmp _ft_strnew

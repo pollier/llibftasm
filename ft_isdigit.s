@@ -1,28 +1,25 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;   		ft_isdigit.s                                       :+:      :+:    :+:    ;
+;    ft_isdigit.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 16:38:51 by pollier           #+#    #+#              ;
-;    Updated: 2015/05/31 18:19:59 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:46:55 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_isdigit
+	global	_ft_isdigit
 
 section .text
 
-_ft_isdigit:
+_ft_isdigit:	cmp rdi, '0'
+				jl false
+				cmp rdi, '9'
+				jg false
+				mov rax, 1
+				ret
 
-	cmp		rdi, 48
-	jl		false
-	cmp		rdi, 58
-	jge		false
-	mov		rax, 1
-	ret
-
-false:
-	mov		rax, 0
-	ret
+false:	mov rax, 0
+		ret

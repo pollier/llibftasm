@@ -5,8 +5,8 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/06/01 18:15:52 by pollier           #+#    #+#              ;
-;    Updated: 2015/06/03 01:10:55 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:47:04 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -18,14 +18,16 @@ string	db	"(null)", 0x0a
 
 section	.text
 
-_ft_puts:
+	_ft_puts:
 
 	push	rdi
 	push	rsi
-	push	rbx
 	cmp		rdi,	0
-	je		if_null
+	je		stop
 	call	_ft_strlen
+
+write:
+
 	mov		rsi,	rdi
 	mov		rdi,	1
 	mov		rdx,	rax
@@ -34,26 +36,24 @@ _ft_puts:
 
 n:
 
-	push	0xa
+	push	0x0a
 	mov		rsi,	rsp
 	mov		rdi,	1
 	mov		rdx,	1
 	mov		rax,	0x2000004
 	syscall
 	pop		rdi
-	pop		rbx
 	pop		rsi
 	pop		rdi
 	ret
 
-if_null:
+stop:
 
 	lea		rsi,	[rel string]
-	mov		rdx,	7
-	mov		rdi,	1
-	mov		rax,	0x2000004
+	mov		rdx,	7				;(null)
+	mov		rdi,	1				;stdout
+	mov		rax,	0x2000004		;write
 	syscall
-	pop		rbx
 	pop		rsi
 	pop		rdi
 	ret

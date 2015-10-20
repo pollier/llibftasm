@@ -5,25 +5,20 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 16:38:51 by pollier           #+#    #+#              ;
-;    Updated: 2015/05/31 18:20:21 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:47:23 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_toupper
+	global	_ft_toupper
 
 section .text
 
-_ft_toupper:
+_ft_toupper:	cmp rdi, 97
+				jl false
+				cmp rdi, 122
+				jg false
+				sub rdi, 32
 
-	cmp		rdi, 'a'
-	jl		false
-	cmp		rdi, 'z'
-	jg		false
-	sub		rdi, 32
-	mov		rax, rdi
-	ret
-
-false:
-	mov		rax, rdi
-	ret
+false:	mov rax, rdi
+		ret

@@ -5,8 +5,8 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/06/03 01:23:34 by pollier           #+#    #+#              ;
-;    Updated: 2015/06/03 01:24:05 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:47:14 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -20,25 +20,24 @@ section .text
 _ft_strdup:
 
 	cmp		rdi,	0
-	je		null
+	je		stop
 	push	rdi
-	push	rsi
 	call	_ft_strlen
-	mov		rcx,	rax
 	mov		rdi,	rax
 	push	rax
 	call	_malloc
+	jc		stop
 	mov		rdi,	rax
 	pop		rcx
 	mov		rsi,	[rsp]
-	push		rdi
+	push	rdi
 	rep		movsb
 	pop		rax
-	pop		rsi
 	pop		rdi
+	mov		rdi,	rax
 	ret
 
-null:
-	
+stop:
+
 	mov 	rax,	0
 	ret

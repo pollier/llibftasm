@@ -5,8 +5,8 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 19:35:56 by pollier           #+#    #+#              ;
-;    Updated: 2015/06/01 18:08:13 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:47:08 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -17,28 +17,28 @@ _ft_strcat:
 
 	push rdi
 
-comp:
+first_string:
 
 	cmp		byte [rdi], 0
-	jne		parse
+	jne		repeat
 
-trail:
+add_to_string:
 
 	mov		al, byte [rsi]
 	mov		byte [rdi], al
 	cmp		byte [rdi], 0
 	je		end
 
-parse2:
+repeat2:
 
 	inc		rdi
 	inc		rsi
-	jmp		trail
+	jmp		add_to_string
 
-parse:
+repeat:
 
 	inc		rdi
-	jmp		comp
+	jmp		first_string
 
 end:
 	pop		rax

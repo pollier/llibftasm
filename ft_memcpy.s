@@ -5,8 +5,8 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/06/03 01:23:19 by pollier           #+#    #+#              ;
-;    Updated: 2015/06/03 01:24:00 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:47:00 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -17,12 +17,10 @@ section .text
 _ft_memcpy:
 
 	push	rdi
-	push	rbx
 	push	rsi
 	mov		rcx, rdx
 	rep		movsb
 	pop		rsi
-	pop		rbx
-	pop		rax
-	mov		rdi, rax
+	pop		rdi
+	mov		rax, rdi
 	ret

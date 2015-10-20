@@ -1,50 +1,60 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strndup.s                                       :+:      :+:    :+:    ;
+;    ft_puts_fd.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/20 15:47:19 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/20 15:47:06 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-extern _ft_strnlen
-extern _malloc
+global      _ft_puts_fd
+extern	_ft_strlen
 
-global _ft_strndup
-extern _ft_strnlen
-extern _ft_strncpy
+section	.data
+string	db	"(null)", 0x0a
 
-section .text
+section	.text
 
-_ft_strndup:
-	push rdi
-	push rsi
-	push rdi
-	push rsi
+	_ft_puts_fd:
 
-	call _ft_strnlen
-	mov rdi, rax
-	mov rsi, rax
-	call _malloc
-	cmp rax, 0
-	je stop
-	mov rdi, rax
-	pop rsi
-	mov rdx, rsi
-	pop rdi
-	mov rsi, rdi
-	call _ft_strncpy
-	pop rsi
-	pop rdi
+	push	rdi
+	push	rsi
+	mov		r8,	rsi
+	cmp		rdi,	0
+	je		stop
+	call	_ft_strlen
+
+write:
+
+	mov		rsi,	rdi
+	mov		rdi,	r8
+	mov		rdx,	rax
+	mov		rax,	0x2000004
+	syscall
+
+n:
+
+	push	0x0a
+	mov		rsi,	rsp
+	mov		rdi,	r8
+	mov		rdx,	1
+	mov		rax,	0x2000004
+	syscall
+	pop		rdi
+	pop		rsi
+	pop		rdi
 	ret
 
 stop:
-	pop rsi
-	pop rdi
-	pop rsi
-	pop rdi
-	mov rax, 0
+
+	lea		rsi,	[rel string]
+	mov		rdx,	7				;(null)
+	mov		rdi,	r8				;stdout
+	mov		rax,	0x2000004		;write
+	syscall
+	pop		rsi
+	pop		rdi
 	ret

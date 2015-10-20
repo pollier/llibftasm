@@ -5,8 +5,8 @@
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 16:38:51 by pollier           #+#    #+#              ;
-;    Updated: 2015/05/31 18:20:10 by pollier          ###   ########.fr        ;
+;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/20 15:46:57 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -21,6 +21,7 @@ _ft_isupper:
 	cmp		rdi, 'Z'
 	jg		false
 	mov		rax, 1
+	ret
 
 false:
 	mov		rax, 0
