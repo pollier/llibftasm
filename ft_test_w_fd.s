@@ -6,7 +6,7 @@
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 09:38:08 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/24 10:33:29 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/24 11:49:29 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -20,8 +20,10 @@ section .text
 
 _ft_test_w_fd:
 
-	push	rsi	
+	push	rsi
 	push	rdi					;fd
+	cmp		rdi,	0
+	jl 		end
 	lea		rsi,	[rel buff]	;load effective address
 	mov		rax,	0x2000004	;write
 	mov		rdx,	0			;len
