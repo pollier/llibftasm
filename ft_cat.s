@@ -6,7 +6,7 @@
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/24 10:44:40 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/24 11:13:33 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -25,6 +25,8 @@ _ft_cat:
 
 	push	rsi					;buffer
 	push	rdi					;fd
+	cmp		rdi,	0
+	jl		end
 	call	_ft_test_r_fd
 	cmp		rax,	0
 	je		end	
