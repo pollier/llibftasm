@@ -1,52 +1,40 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_cat.s                                           :+:      :+:    :+:    ;
+;    ft_test_r_fd.s                                     :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/24 10:44:40 by pollier          ###   ########.fr        ;
+;    Created: 2015/10/24 09:45:27 by pollier           #+#    #+#              ;
+;    Updated: 2015/10/24 10:33:04 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define	BUFF_SIZE	32
-
-global _ft_cat
-extern	_ft_test_r_fd
+global	_ft_test_r_fd
 
 section .bss
 
-buff resb BUFF_SIZE
+buff resb 1
 
 section .text
 
-_ft_cat:
+_ft_test_r_fd:
 
-	push	rsi					;buffer
+	push	rsi	
 	push	rdi					;fd
-	call	_ft_test_r_fd
-	cmp		rax,	0
-	je		end	
-
-boucle:
-
 	lea		rsi,	[rel buff]	;load effective address
 	mov		rax,	0x2000003	;read
-	mov		rdx,	BUFF_SIZE
+	mov		rdx,	0			;len
 	syscall
 	cmp		rax,	0
-	jle		end
-	mov		rdx,	rax
-	mov		rdi,	1			;stdout
-	mov		rax,	0x2000004	;write
-	syscall
-	mov		rdi,	[rsp]
-	jmp		boucle
-
-end:
-
+	jl		end
+	mov		rax,	1
 	pop		rdi
 	pop		rsi
+	ret
+
+end:
 	mov		rax,	0
+	pop		rdi
+	pop		rsi
 	ret

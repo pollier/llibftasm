@@ -6,7 +6,7 @@
 /*   By: pollier <pollier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/08 19:45:47 by pollier           #+#    #+#             */
-/*   Updated: 2015/10/20 18:50:47 by pollier          ###   ########.fr       */
+/*   Updated: 2015/10/24 10:49:28 by pollier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -791,24 +791,6 @@ void		test_ft_strncpy(void)
 	printf("strncpy(COUCOU, qwertyuiop, 0) -> strncpy: %s, ft_strncpy: %s\n", str3, str4);
 }
 
-void *ft_strnew(size_t size);
-
-void test_ft_strnew(void)
-{
-	char *s1;
-	char s2[] = "\0\0\0\0\0\0";
-
-	ft_putstr("ft_strnew(5) ->");
-	s1 = ft_strnew(5);
-	memcmp(s1, s2, 6) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
-
-	char *s3;
-	char s4[] = "\0";
-	ft_putstr("ft_strnew(0) ->");
-	s3 = ft_strnew(0);
-	memcmp(s3, s4, 1) == 0 ? ft_putstr("\033[32m OK\n\033[m") : ft_putstr("\033[31m FAIL\n\033[m");
-}
-
 void	test_ft_puts_fd(void)
 {
 	int fd;
@@ -876,8 +858,6 @@ int main(void)
 	test_ft_strcpy();
 	ft_putstr("\nFT_STRNCPY:\n");
 	test_ft_strncpy();
-	ft_putstr("\nFT_STRNEW:\n");
-	test_ft_strnew();
 	ft_putstr("\n\nFT_PUTS_FD:\n");
 	test_ft_puts_fd();
 }

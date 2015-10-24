@@ -6,12 +6,13 @@
 ;    By: pollier <pollier@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/31 15:51:29 by pollier           #+#    #+#              ;
-;    Updated: 2015/10/20 21:19:08 by pollier          ###   ########.fr        ;
+;    Updated: 2015/10/24 10:38:21 by pollier          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 global      _ft_puts_fd
 extern	_ft_strlen
+extern	_ft_test_w_fd
 
 section	.data
 string	db	"(null)", 0x0a
@@ -20,6 +21,14 @@ section	.text
 
 _ft_puts_fd:
 
+	push	rdi
+	push	rsi
+	mov		rdi,	rsi
+	call	_ft_test_w_fd
+	cmp		rax,	0
+	je		error
+	pop		rsi
+	pop		rdi
 	push	rdi
 	push	rsi
 	mov		r8,	rsi
@@ -65,3 +74,6 @@ stop:
 	ret
 
 error:
+	pop		rsi
+	pop		rdi
+	ret

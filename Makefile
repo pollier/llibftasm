@@ -25,7 +25,9 @@ ft_strndup.s\
 ft_strnew.s\
 ft_strnlen.s\
 ft_tolower.s\
-ft_toupper.s
+ft_toupper.s\
+ft_test_w_fd.s\
+ft_test_r_fd.s
 
 
 OBJ = $(LIBFT_ASM:.s=.o)
